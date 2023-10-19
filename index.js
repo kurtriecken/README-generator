@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-
+let textToWrite = "# ${title}\n\n## Description\n\n${description}\n\n## Installation\n\n${intallation}\n\n## Usage\n\n${usage}\n\n## License\n\n${license}## Credits\n\n[${name}'s GitHub](${gitHub})\n\n## How to Contribute\n\n${contributions}";
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -10,6 +10,11 @@ const questions = [
         type: 'input',
         message: 'What is your name?',
         name: 'name',
+    },
+    {
+        type: 'input',
+        message: 'Please enter your gitHub profile URL:',
+        name: 'gitHub',
     },
     {
         type: 'input',
@@ -56,14 +61,19 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+function writeToFile(fileName, data) {
+    const {name, gitHub, title, description, installation, usage, contributions, license} = data;
+    fs.mkdirSync("YourFileIsInHere");
+    fs.writeFile(fileName, `# ${title}\n\n## Description\n\n${description}\n\n## Installation\n\n${installation}\n\n## Usage\n\n${usage}\n\n## License\n\n${license}## Credits\n\n[${name}'s GitHub](${gitHub})\n\n## How to Contribute\n\n${contributions}`, (err) =>
+    err ? console.error(err) : console.log('Success!'))
+}
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer
         .prompt(questions)
         .then((response) => {
-            console.log(response);
+            writeToFile("./YourFileIsInHere/readMePlease.md", response);
         })
 }
 
