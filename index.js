@@ -64,7 +64,7 @@ const questions = [
 function writeToFile(fileName, data) {
     const {name, gitHub, title, description, installation, usage, contributions, license} = data;
     fs.mkdirSync("YourFileIsInHere");
-    fs.writeFile(fileName, `# ${title}\n\n## Description\n\n${description}\n\n## Installation\n\n${installation}\n\n## Usage\n\n${usage}\n\n## License\n\n${license}## Credits\n\n[${name}'s GitHub](${gitHub})\n\n## How to Contribute\n\n${contributions}`, (err) =>
+    fs.writeFile(fileName, `# ${title}\n\n## Description\n\n${description}\n\n## Table of Contents\n\n-[Installation](#installation)\n\n-[Usage](#usage)\n\n-[License](#license)\n\n-[Credits](#credits)\n\n-[Contributions](#how-to-contribute)\n\n## Installation\n\n${installation}\n\n## Usage\n\n${usage}\n\n## License\n\n${license}\n\n## Credits\n\n[${name}'s GitHub](${gitHub})\n\n## How to Contribute\n\n${contributions}`, (err) =>
     err ? console.error(err) : console.log('Success!'))
 }
 

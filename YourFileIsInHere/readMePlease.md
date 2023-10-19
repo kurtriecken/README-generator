@@ -1,23 +1,33 @@
-# README gen
+# Bobob
 
 ## Description
 
-creates a readme from some simple prompts
+BObobobBO?b?BOBOb B
+
+## Table of Contents
+
+-[Installation](#installation)
+-[Usage](#usage)
+-[License](#license)
+-[Credits](#credits)
+-[Contributions](#how-to-contribute)
 
 ## Installation
 
-You don't, just use node and get inquirer
+BOOBBOBO
 
 ## Usage
 
-By myself as a learning opportunity
+BBOOOBBOboboBOBobb
 
 ## License
 
-MIT## Credits
+A thirD choice NO WAY
 
-[Kurt's GitHub](https://github.com/kurtriecken)
+## Credits
+
+[Bob's GitHub](google.com)
 
 ## How to Contribute
 
-Visit my github linked in this readme
+BOb
