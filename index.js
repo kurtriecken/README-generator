@@ -1,8 +1,12 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown.js');
+// const renderLicenseBadge = require('./utils/generateMarkdown.js');
+// const renderLicenseLink = require('./utils/generateMarkdown.js');
+// const renderLicenseSection = require('./utils/generateMarkdown.js');
 
-let textToWrite = "# ${title}\n\n## Description\n\n${description}\n\n## Installation\n\n${intallation}\n\n## Usage\n\n${usage}\n\n## License\n\n${license}## Credits\n\n[${name}'s GitHub](${gitHub})\n\n## How to Contribute\n\n${contributions}";
+
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -50,21 +54,26 @@ const questions = [
                 name: 'MIT',
             },
             {
-                name: 'A different license',
+                name: 'Apache 2.0',
             },
             {
-                name: 'A thirD choice NO WAY',
+                name: 'No license',
             }
         ],
-        default: 'A different license',
+        default: 'Apache 2.0',
     }
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    const {name, gitHub, title, description, installation, usage, contributions, license} = data;
-    fs.mkdirSync("YourFileIsInHere");
-    fs.writeFile(fileName, `# ${title}\n\n## Description\n\n${description}\n\n## Table of Contents\n\n-[Installation](#installation)\n\n-[Usage](#usage)\n\n-[License](#license)\n\n-[Credits](#credits)\n\n-[Contributions](#how-to-contribute)\n\n## Installation\n\n${installation}\n\n## Usage\n\n${usage}\n\n## License\n\n${license}\n\n## Credits\n\n[${name}'s GitHub](${gitHub})\n\n## How to Contribute\n\n${contributions}`, (err) =>
+    // console.log(data.license);
+    // let badge = renderLicenseBadge(data.license);
+    // let link = renderLicenseLink(data.license);
+    // let licenseMd = renderLicenseSection(data.license, link);
+    // console.log(licenseMd);
+    let text = generateMarkdown(data);
+    console.log(`text generated is: ${text}`);
+    fs.writeFile(fileName, text, (err) =>
     err ? console.error(err) : console.log('Success!'))
 }
 
@@ -73,11 +82,9 @@ function init() {
     inquirer
         .prompt(questions)
         .then((response) => {
-            writeToFile("./YourFileIsInHere/readMePlease.md", response);
+            writeToFile("./YourFileIsInHere/README.md", response);
         })
 }
 
 // Function call to initialize app
 init();
-
-
