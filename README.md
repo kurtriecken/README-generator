@@ -53,6 +53,10 @@
   `Success!`
 
   Your README file will be located in the folder called "YourFileIsInHere", because your file is in there.
+
+  Watch the following video for a complete walkthrough:
+
+  [Video](https://watch.screencastify.com/v/mcfN6PWrV7cRaTdIaI7K)
   
 
 ## License
