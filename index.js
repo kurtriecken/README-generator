@@ -17,8 +17,13 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Please enter your gitHub profile URL:',
+        message: 'Please enter your gitHub username:',
         name: 'gitHub',
+    },
+    {
+        type: 'input',
+        message: 'What is your email address?',
+        name: 'email',
     },
     {
         type: 'input',
@@ -42,7 +47,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Please share how others may contribute to this project.',
+        message: 'Please share how others may contribute to this project',
         name: 'contributions',
     },
     {

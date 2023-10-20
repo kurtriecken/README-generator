@@ -14,10 +14,10 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license == 'MIT') {
-    return 'https://opensource.org/licenses/MIT'
+    return '(https://opensource.org/licenses/MIT)\n\n'
   }
   else if (license == 'Apache 2.0') {
-    return 'https://opensource.org/licenses/Apache-2.0'
+    return '(https://opensource.org/licenses/Apache-2.0)\n\n'
   }
   else return '';
 };
@@ -27,10 +27,10 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   // console.log(`license is ${license}`);
   if (license == 'No license') {
-    return '\n\n##License\n\nThis project does not include a license.\n\n';
+    return '\n\n## License\n\nThis project does not include a license.\n\n';
   }
   else {
-    let text = `\n\n##License\n\n[![This project uses the following license: ${license}]()]\n\n`;
+    let text = `\n\n## License\n\n[This project uses the following license: ${license}]`;
     return text;
   }
 };
@@ -73,15 +73,21 @@ function generateMarkdown(data) {
   
   ${data.usage}
 
-  ${link}
-  
-  ## Credits
-  
-  [${data.name}'s GitHub](${data.gitHub})
-  
+  ${licenseMd}${link}
+
   ## How to Contribute
   
   ${data.contributions}
+
+  ## Questions
+
+  [Please follow this link to my GitHub profile!](https://github.com/${data.gitHub})
+
+  For any additional questions, please [email me here.](mailto:${data.email})
+
+  ## Credits
+  
+  [${data.name}](${data.gitHub})
 `;
 }
 
