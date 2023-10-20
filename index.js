@@ -1,14 +1,9 @@
-// TODO: Include packages needed for this application
+// Imports needed
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
-// const renderLicenseBadge = require('./utils/generateMarkdown.js');
-// const renderLicenseLink = require('./utils/generateMarkdown.js');
-// const renderLicenseSection = require('./utils/generateMarkdown.js');
 
-
-
-// TODO: Create an array of questions for user input
+// Array of questions for the prompt function
 const questions = [
     {
         type: 'input',
@@ -69,20 +64,15 @@ const questions = [
     }
 ];
 
-// TODO: Create a function to write README file
+// Calls the necessary function to write the text for the README
+// Then writes that text to a markdown file
 function writeToFile(fileName, data) {
-    // console.log(data.license);
-    // let badge = renderLicenseBadge(data.license);
-    // let link = renderLicenseLink(data.license);
-    // let licenseMd = renderLicenseSection(data.license, link);
-    // console.log(licenseMd);
     let text = generateMarkdown(data);
-    console.log(`text generated is: ${text}`);
     fs.writeFile(fileName, text, (err) =>
     err ? console.error(err) : console.log('Success!'))
 }
 
-// TODO: Create a function to initialize app
+// Initialization including invoking inquirer to prompt the user with quetsions
 function init() {
     inquirer
         .prompt(questions)
